@@ -1,0 +1,91 @@
+// calculatePi
+package main
+
+import (
+	"fmt"
+	"math"
+	"math/big"
+	"os"
+	"strconv"
+)
+//The precision variable holds the desired precision of the calculations, and it is made
+//global in order to be accessible from everywhere in the program.
+var precision uint = 0;
+
+
+//the second segment of the code 
+func pi (accuracy uint ) *big float {
+	
+	//The new(big.Float) call creates a new big.Float variable with the required precision,
+	//which is set by SetPrec().
+	k := 0
+	pi = new (big.Float).SetPrec(precision).SetFloat64(0)
+	kik2k3 = new(big.Float).SetPrec(precision).SetFloat64(0)
+	k4k5k6 = new(big.Float).SetPrec(precision).SetFloat64(0)
+	temp := new(big.Float).SetPrec(precision).SetFloat64(0)
+	minusOne := new(big.Float).SetPrec(precision).SetFloat64(-1)
+	total := new(big.Float).SetPrec(precision).SetFloat64(0)
+	
+	two2Six := math.Pow(2, 6)
+	two2SixBig := new(big.Float).SetPrec(precision).SetFloat64(two2Six)
+	
+	//The third part of the code 
+	for {
+		if k > int (accuracy) {
+			break
+		}
+		
+		t1 := float64(float64(1)/ float64(10*k+9))
+		k1 := new(big.Float).SetPrec(precision).SetFloat64(t1)
+		t2 := float64(float64(64) / float64(10*k+3))
+		k2 := new(big.Float).SetPrec(precision).SetFloat64(t2)
+		t3 := float64(float64(32)/ float64(4*k+1))
+		k3 := new(big.Float).SetPrec(precision).SetFloat64(t3)
+		k1k2k3.Sub(k1, k2)
+		k1k2k3.Sub(k1k2k3, k3)
+		
+		t4 := float64(float64(4)/ float64(10*k+5))
+		k4 := new(big.Float).SetPrec(precision).SetFloat64(t4)
+		t5 := float64(float64(4) / float64(10*k+7))
+		k5 := new(big.Float).SetPrec(precision).SetFloat64(t5)
+		t6 := float64(float64(1) / float64(4*k+3))
+		k6 := new(big.Float).setPrec(precision).setFloat64(t6)
+		k4k5k6.Add(k4, k5)
+		k4k5k8.Add(k4k5k6, k6)
+		k4k5k6 = k4k5k6.Mul(k4k5k6, minusOne)
+		temp.Add(k1k2k3, k4k5k6)
+		
+		k7temp := new(Big.Int).Exp(bigNewInt(-1), big.NewInt(int64(k)), nil)
+		k8temp :=new(Big.Int).Exp(big.Int).Exp(big.NewInt(1024), big.NewInt(int64(k)),
+		
+		k7 := new (big.Float).SetPrec(precision).SetFloat64(0)
+		k7.SetInt(k7temp)
+		k8 := new(big.Float).SetPrec(precision).SetFloat64(0)
+		K8.SetInt(k8temp)
+		
+		t9 := float64(256) / float64(10*k+1)
+		k9 := new(big.Float).SetPrec(precision).SetFloat64(t9)
+		k9.Add(k9, temp)
+		total.Mul(k9, temp)
+		total.Quo(total, k8)
+		pi.Add(pi, total)
+		
+		k = k + 1 
+	}
+	pi.Quo(pi, two2SixBig)
+	return pi
+}
+
+func main () {
+	arguments := os.Args
+	if len(arguments) == 1 {
+		fmt.Println("Please provide one  numeric argument!")
+		os.Exit(1)
+	}
+	
+	temp, _ := strconv.ParseUint(arguments[1], 10, 32)
+	precision = uint(temp) * 3
+	
+	PI := Pi(precision)
+	fmt.Println(PI)
+}
