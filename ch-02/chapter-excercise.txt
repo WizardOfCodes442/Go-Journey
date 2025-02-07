@@ -1,0 +1,31 @@
+1. Try to write a Go program that prints the invalid part or parts of an IPv4 address.
+
+2.Can you state the differences between make and new without looking at the
+chapter text?
+
+3.Using the code of findIPv4.go, write a Go program that prints the most
+popular IPv4 addresses found in a log file without processing the output with
+any UNIX utilities.
+
+4.Develop a Go program that finds the IPv4 addresses in a log file that generated a
+404 HTML error message.
+
+5.Read a JSON file with 10 integer values, store it in a struct variable, increment
+each integer value by one, and write the updated JSON entry on disk. Now, do
+the same for an XML file
+
+6.Develop a Go program that finds all the IPv4 addresses of a log file that
+downloaded ZIP files.
+
+7.Using the math/big standard Go package, write a Go program that calculates
+square roots with high precision – choose the algorithm on your own.
+
+8.Write a Go utility that finds a given date and time format in its input and returns
+just the time part of it.
+
+9.Do you remember the differences between a character, a byte, and a rune?
+
+10.Develop a Go utility that uses a regular expression in order to match integers
+from 200 to 400.
+
+11. Try to improve keyValue.go by adding logging to it.
